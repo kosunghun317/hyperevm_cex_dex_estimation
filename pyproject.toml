@@ -1,0 +1,27 @@
+[project]
+name = "hyperevm-cex-dex-estimation"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "kosunghun317",email = "kosunghun317@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "ipykernel (>=6.30.1,<7.0.0)",
+    "ruff (>=0.12.11,<0.13.0)",
+    "polars (>=1.33.0,<2.0.0)",
+    "tardis-client (>=1.3.10,<2.0.0)",
+    "mamushi (>=0.0.8,<0.0.9)",
+    "moccasin (>=0.4.2,<0.5.0)",
+    "web3 (>=7.13.0,<8.0.0)",
+    "dune-client (>=1.7.10,<2.0.0)"
+]
+
+[tool.poetry]
+packages = [{include = "hyperevm_cex_dex_estimation", from = "src"}]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
