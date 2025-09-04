@@ -15,7 +15,9 @@ dependencies = [
     "mamushi (>=0.0.8,<0.0.9)",
     "moccasin (>=0.4.2,<0.5.0)",
     "web3 (>=7.13.0,<8.0.0)",
-    "dune-client (>=1.7.10,<2.0.0)"
+    "dune-client (>=1.7.10,<2.0.0)",
+    "tardis-dev (>=2.1.2,<3.0.0)",
+    "hyperliquid-python-sdk (>=0.18.0,<0.19.0)"
 ]
 
 [tool.poetry]
