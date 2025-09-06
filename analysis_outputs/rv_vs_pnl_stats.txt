@@ -1,0 +1,4 @@
+Profitable traders
+r=0.030376, p=0.249388, n=1440, std_rv=9.72469e-07, std_pnl=13.792
+All traders
+r=-0.008208, p=0.755693, n=1440, std_rv=9.72469e-07, std_pnl=14.8091

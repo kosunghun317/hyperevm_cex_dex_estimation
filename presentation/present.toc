@@ -1,0 +1,4 @@
+\beamer@sectionintoc {1}{Introduction: What is MEV?}{3}{0}{1}
+\beamer@sectionintoc {2}{Goal 1: Search on HyperEVM}{5}{0}{2}
+\beamer@sectionintoc {3}{Goal 2: Empirical Analysis}{11}{0}{3}
+\beamer@sectionintoc {4}{Conclusion}{17}{0}{4}

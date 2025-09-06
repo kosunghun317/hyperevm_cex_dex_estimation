@@ -14,10 +14,10 @@ pprint.pprint(
         from_date="2025-08-01T00:00:00.000Z",
         to_date="2025-08-30T23:59:59.999Z",
         symbols=[
-            "@107", # HYPE-USDC
-            "@142", # UBTC-USDC
-            "@151", # UETH-USDC
-            "@166", # USDT0-USDC
+            "@107",  # HYPE-USDC
+            "@142",  # UBTC-USDC
+            "@151",  # UETH-USDC
+            "@166",  # USDT0-USDC
         ],
         api_key=os.getenv("TARDIS_API_KEY"),
     )

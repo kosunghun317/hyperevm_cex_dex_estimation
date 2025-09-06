@@ -179,3 +179,7 @@ lib/
 era_test_node.log
 anvil-zksync.log
 .DS_Store
+
+# Ignore all CSV files
+*.csv
+*.[cC][sS][vV]

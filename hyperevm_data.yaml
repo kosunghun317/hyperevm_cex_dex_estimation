@@ -1,0 +1,25 @@
+# Hyperevm token and pair addresses
+# You can add comments anywhere in this YAML file using '#'.
+
+tokens:
+  usdt_address: "0xb8ce59fc3717ada4c02eadf9682a9e934f625ebb"
+  hype_address: "0x5555555555555555555555555555555555555555"
+  ubtc_address: "0x9fdbda0a5e284c32744d2f17ee5c74b284993463"
+  ueth_address: "0xbe6727b535545c67d5caa73dea54865b92cf7907"
+
+pairs: # project x, hyperswap, upheaval, hybra, kittenswap
+  hype_usdt:
+    - project_x: ["0xBd19E19E4b70eB7F248695a42208bc1EdBBFb57D", "0x161fB7d6c764f81DAE581E8a4981772750416727", ]
+    - hyperswap: ["0x337b56d87a6185cd46af3ac2cdf03cbc37070c30", "0x56abfaf40f5b7464e9cc8cff1af13863d6914508", "0xf40d57783c3359f160d006b9bc7a2e4311fe6a86"]
+    - upheaval: ["0x68f4Bb01D75Edf476195fCA80271ADf5CA71A242"]
+    - hybra: ["0x3603ffEbB994CC110b4186040CaC3005B2cf4465"]
+  ubtc_usdt:
+    - project_x: ["0xfd0cb41a4a28b5cA13affe65cd5924F461b3C850", "0xf7cbA9135cDB0Ff65Cc8945edcDe954e47881622"]
+    - hyperswap: ["0x7cac5c8ad2fb1216d3f262b2c9cd5548d0329e78"]
+    - upheaval: []
+    - hybra: []
+  usdt_ueth:
+    - project_x: ["0xaEAE69783e3121196A45f3930fa141f462A4Df2F"]
+    - hyperswap: ["0x2850fe0dcf4ca5e0a7b8355f4a875f96a92de948"]
+    - upheaval: []
+    - hybra: []

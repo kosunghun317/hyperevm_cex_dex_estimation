@@ -23,11 +23,20 @@ def _infer_epoch_unit_from_max_timestamp(max_timestamp: int) -> str:
 def compute_mid_price_per_second(input_csv_path: Path) -> pl.DataFrame:
     df = pl.read_csv(
         input_csv_path,
-        infer_schema_length=1000,
+        infer_schema_length=100000,
+        schema_overrides={
+            "symbol": pl.Utf8,
+            "ask_price": pl.Float64,
+            "bid_price": pl.Float64,
+            "ask_amount": pl.Float64,
+            "bid_amount": pl.Float64,
+        },
     )
 
     if "timestamp" not in df.columns or "symbol" not in df.columns:
-        raise ValueError("Input CSV must contain at least 'symbol' and 'timestamp' columns")
+        raise ValueError(
+            "Input CSV must contain at least 'symbol' and 'timestamp' columns"
+        )
 
     # Ensure integer timestamps and infer unit (s/ms/us)
     df = df.with_columns(pl.col("timestamp").cast(pl.Int64))
@@ -52,7 +61,8 @@ def compute_mid_price_per_second(input_csv_path: Path) -> pl.DataFrame:
 
     # Aggregate per symbol and second using size-weighted mid price
     agg = (
-        df.group_by(["symbol", "second"]).agg(
+        df.group_by(["symbol", "second"])
+        .agg(
             numerator=pl.col("row_weighted_price").sum(),
             denom=pl.col("row_weight").sum(),
             fallback_mid_mean=pl.col("fallback_mid").mean(),
@@ -94,7 +104,9 @@ def compute_mid_price_per_second(input_csv_path: Path) -> pl.DataFrame:
         )
         .with_columns(
             # Polars supports timestamp units ns/us/ms; derive seconds via ms // 1000
-            timestamp=(pl.col("second").dt.timestamp(time_unit="ms") / 1000).floor().cast(pl.Int64),
+            timestamp=(pl.col("second").dt.timestamp(time_unit="ms") / 1000)
+            .floor()
+            .cast(pl.Int64),
         )
         .rename({"second": "datetime"})
         .select(["symbol", "datetime", "timestamp", "mid_price"])  # final schema
@@ -104,7 +116,9 @@ def compute_mid_price_per_second(input_csv_path: Path) -> pl.DataFrame:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Compute 1-second mid price time series from quotes CSV.")
+    parser = argparse.ArgumentParser(
+        description="Compute 1-second mid price time series from quotes CSV."
+    )
     parser.add_argument("--input", required=True, help="Path to input quotes CSV")
     parser.add_argument(
         "--output",
@@ -130,5 +144,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
-

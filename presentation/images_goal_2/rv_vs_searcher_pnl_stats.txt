@@ -1,0 +1,5 @@
+n=39364
+slope_beta=9021.637611063496
+intercept_alpha=-3.1412310741826346
+pearson_r=0.3091109684043142
+p_value_approx=0.0
