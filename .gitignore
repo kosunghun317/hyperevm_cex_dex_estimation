@@ -183,3 +183,7 @@ anvil-zksync.log
 # Ignore all CSV files
 *.csv
 *.[cC][sS][vV]
+
+# But keep CSVs under event_datasets_final_async/ in scope
+!event_datasets_final_async/*.csv
+!event_datasets_final_async/**/*.csv
